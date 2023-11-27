@@ -1,6 +1,29 @@
 #Parte de ejrcicios
 
 
+# def Busqueda_for (arr):
+    
+from operator import truediv
+
+
+def array():
+    arr = ["Macia", "Juan", "Jose", "Ernes"]
+    return arr
+
+if __name__ == "__main__":
+    i=0
+    var_encontrar = False
+    array = array()
+    for n.1 in class:
+        var_encontrar = true
+    print(class)
+
+
+
+
+
+'''''
+
 class nomb:
     def __init__(self,  nombre1, nombre2, nombre3, nombre4)
         self.nombre1 = nombre1
@@ -12,7 +35,7 @@ from ast import While
 
 def busqueda_while (arr) :
 
-i = [1, 2, 3]
+i = 0
 
 def __init__(self, not_encontrado):
     self.array = []
@@ -31,9 +54,10 @@ n.1 = nomb("Macia", "Juan", "Jose", "Ernes")
 
 n1.salgan
 
-def arr = ["Macia", "Juan", "Jose", "Ernes", busqueda_while, recorrido_while, recorrido _for]
+
 
 if __name__ == "__main__":
+    i=0
     arr = ["Macia", "Juan", "Jose", "Ernes"]
     for elemento in arr:
         if "Juan" : elemento
@@ -45,11 +69,12 @@ if __name__ == "__main__":
         for elemento in arr:
         if "Juan" : elemento
         print("Encontrado")
-    
+
+'''    
 
 
 
-'''''
+
 # arr = ["Macia", "Juan", "Jose", "Ernes"]  
 
 # 1. var_a_encontrado = "juan"
@@ -80,3 +105,5 @@ if __name__ == "__main__":
         print("Encontrado")
 
 '''
+
+
