@@ -4,9 +4,11 @@
 # def Busqueda_for (arr):
     
 from operator import truediv
+from socket import J1939_MAX_UNICAST_ADDR
 
+array=array_n()
 
-def array():
+def array_n():
     arr = ["Macia", "Juan", "Jose", "Ernes"]
     return arr
 
@@ -14,15 +16,27 @@ if __name__ == "__main__":
     i=0
     var_encontrar = False
     array = array()
-    for n.1 in class:
-        var_encontrar = true
-    print(class)
+    #for n.1 in class:
+    #    var_encontrar = true
+    #print(class)
 
 
+i = [i]
 
+for i in array:
+    print(array)
 
+encontrado = False
+elemento = array[0]
+while not encontrado:
+    if elemento == "juan":
+    i encontrado == True
 
-'''''
+for i in array:
+    if i == "juan":
+        break
+
+'''
 
 class nomb:
     def __init__(self,  nombre1, nombre2, nombre3, nombre4)
@@ -103,7 +117,3 @@ if __name__ == "__main__":
     while for elemento in arr:
         if "Valor_encontrado":elemento
         print("Encontrado")
-
-'''
-
-
