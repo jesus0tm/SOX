@@ -13,8 +13,6 @@ class Menu:
 class Juego:
     def empezar(self):
         print("¡El juego ha comenzado!")
-        print("Cual es tu nombre")
-        nombre = input()
 
 class Ranking:
     def ver(self):

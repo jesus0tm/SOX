@@ -1,10 +1,14 @@
+import random
+
 # 1) Iniciar partido
 #                                                Ranking     Tiradas
 # 2) Ver resultado del ranking ---->    macia      1           2
 #                                       juanjo     2           6
 #                                       javier     3           8
 # 3) Salir
+
 import time
+from random import randint
 
 class Menu:
     def __init__(self):
@@ -13,12 +17,29 @@ class Menu:
 class Juego:
     def empezar(self):
         print("¡El juego ha comenzado!")
-        print("Cual es tu nombre")
-        nombre = input()
+    
 
 class Ranking:
+    def __init__(self):
+        self.registro_archivo = "registro_jugadores.txt"
+        self.registro = self.cargar_registro()
+
+    def cargar_registro(self):
+        if os.path.exists(self.registro_archivo):
+            with open(self.registro_archivo, "r") as file:
+                registro = [line.strip() for line in file]
+            return registro
+        else:
+            return []
+
+    def guardar_registro(self, nombre_jugador, intentos):
+        with open(self.registro_archivo, "a") as file:
+            file.write(f"{nombre_jugador}: {intentos} intentos\n")
+
     def ver(self):
-        print("Mostrando el ranking de jugadores.")
+        print("Mostrando el ranking de jugadores:")
+        for i, jugador in enumerate(self.registro, start=1):
+            print(f"{i}. {jugador}")
 
 class TratamientoFichero:
     def __init__(self, nombre_fichero):
@@ -32,7 +53,6 @@ class TratamientoFichero:
         with open(self.nombre_fichero, "r") as f:
             print(f.read())
 
-
 def mostrar_menu():
     print("Menú:")
     print("1. Empezar juego")
@@ -44,40 +64,26 @@ import sys
 def main():
     juego = Juego()
     ranking = Ranking()
+    
 
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción (1-3): ")
         if opcion == '1':
-            juego.empezar()
-            break
+            nombre_jugador = input("Ingrese su nombre: ")
+            intentos = juego.empezar(nombre_jugador)
+            ranking.guardar_registro(nombre_jugador, intentos)
         elif opcion == '2':
             ranking.ver()
-            break
         elif opcion == '3':
             print("Saliendo del programa.")
             sys.exit()
         else:
             print("Opción no válida. Por favor, seleccione una opción válida.")
 
+
 if __name__ == "__main__":
     main()
 
-
-
-
- 
-from random import randint
-
-numero_secreto = randint(0, 10)
-
-while True:
-    intento = int(input("Adivina el número (entre 0 y 10): "))
-
-
-    if intento == numero_secreto:
-        print("¡Correcto! Has adivinado el número.")
-        break
-    else:
-        print("Incorrecto. Inténtalo de nuevo.")
+# Código del juego
 
