@@ -6,3 +6,5 @@ urlpatterns = [
     path('obtener-todos-libros/', views.obtener_todos_libros),
     path('borrar-libro/<int:id>/', views.borrar_libro),
 ]
+
+

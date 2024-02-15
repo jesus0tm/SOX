@@ -1,17 +1,31 @@
 from django.http import JsonResponse
 from .models import Libro
+from django.views.decorators.csrf import csrf_exempt
+import json
 
+def mi_vista_sin_proteccion_csrf(request):
+    # Tu lógica de vista aquí
+    return JsonResponse("Esta vista no tiene protección CSRF.")
+
+
+
+
+
+@csrf_exempt
 def introducir_libro(request):
-    Libro.objects.create(titulo=request.POST['titulo'], num_paginas=request.POST['num_paginas'])
-    return JsonResponse({'message': 'Libro introducido correctamente'}, status=201)
+    string_body = request.body.decode('utf8').replace("'", '"') 
+    body = json.loads(string_body)
+    #pdb.set_trace()
+    nuevo_libro = Libro(titulo=body['titulo'], num_paginas=body['num_paginas'])
+    nuevo_libro.save()
+    return JsonResponse({'message': 'Libro introducido correctamente'})
 
+@csrf_exempt
 def obtener_todos_libros(request):
     libros = list(Libro.objects.values())
     return JsonResponse(libros, safe=False)
 
+@csrf_exempt
 def borrar_libro(request, id):
-    try:
-        Libro.objects.get(id=id).delete()
-        return JsonResponse({'message': 'Libro eliminado correctamente'}, status=204)
-    except Libro.DoesNotExist:
-        return JsonResponse({'error': 'El libro no existe'}, status=404)
+    Libro.objects.get(id=id).delete()
+    return JsonResponse({'message': 'Libro eliminado correctamente'})
